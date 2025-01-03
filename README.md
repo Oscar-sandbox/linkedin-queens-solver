@@ -21,4 +21,4 @@ Second, a solution has to be found given this grid representation. Here, a simpl
 
 ## Results
 The solver was tested on 20 puzzles, ranging from puzzle No. 227 to 246. With backtracking at depth 2, every puzzle was solved in under a second, with an average solve time of 0.09s. 
-Full results, with images, are available at [results](results). 
+Full results, with images, are available at [examples](examples). 
