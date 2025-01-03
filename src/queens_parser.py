@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Dec 31 00:29:20 2024
-
 @author: oscar
 """
-
 import numpy as np
 from scipy.signal import find_peaks
 import cv2
