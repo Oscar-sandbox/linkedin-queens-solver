@@ -7,7 +7,6 @@ import numpy as np
 from scipy.signal import find_peaks
 import cv2
 
-
 def parse_queens_img(img):
     ''' Parses an image representation of a board into a NxN numpy array.'''
     img = img.copy()
