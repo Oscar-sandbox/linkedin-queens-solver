@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Dec 30 01:27:16 2024
-
 @author: oscar
 """
 from pathlib import Path
@@ -15,7 +14,6 @@ for f in Path('examples', 'inputs').glob('*'):
     
     board, img, rows, cols = parse_queens_img(img)
     Q = QueensSolver(depth=2).solve(board)    
-    if Q is None: print('que')
     answer = draw_queens_board(img, Q, rows, cols)
     
     answer_filepath = Path('examples', 'outputs', f'answer_{f.name}')
