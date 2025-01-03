@@ -1,19 +1,15 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Dec 28 22:45:52 2024
-
 @author: oscar
 """
 from copy import deepcopy
 import numpy as np
 
-
-class QueensSolver:
-    
+class QueensSolver: 
     def __init__(self, depth): 
         ''' Construct a Queens solver using backtracking.'''
-        self.depth = depth
-        
+        self.depth = depth        
         
     def check_Q(self):
         ''' Check if self.Q contains an answer for the puzzle.'''
@@ -21,8 +17,7 @@ class QueensSolver:
         if np.any(np.count_nonzero(self.Q, 0) > 1): return False # valid columns.
         if np.any(np.count_nonzero(self.Q, 1) > 1): return False # valid rows.
         if np.any(np.count_nonzero(self.Q & self.G, (1,2)) > 1): return False # valid colors.
-        return True
-    
+        return True  
     
     def check_X(self): 
         ''' Check if self.X has any immediate contradictions.'''
@@ -34,7 +29,6 @@ class QueensSolver:
         if np.any(~qg_bool & (xg_count == self.G_count)): return False # valid colors.
         
         return True
-
 
     def update_Q(self, i, j):
         ''' Add a new queen at (i,j) and update self.X.'''
@@ -49,8 +43,7 @@ class QueensSolver:
         self.X[min(i+1,e), max(j-1,0)] = True
         self.X[min(i+1,e), min(j+1,e)] = True
         
-        self.X[self.B == self.B[i,j]] = True # mark colors.
-    
+        self.X[self.B == self.B[i,j]] = True # mark colors. 
     
     def find_trivial_row(self): 
         ''' Find a pair (i,j), if existent, where a queen completes a row.'''
@@ -61,7 +54,6 @@ class QueensSolver:
         if i.size: 
             i = i[0]
             return i, np.nonzero(~self.X[i])[0][0]
-     
         
     def find_trivial_col(self): 
         ''' Find a pair (i,j), if existent, where a queen completes a column.'''
@@ -73,7 +65,6 @@ class QueensSolver:
             j = j[0]
             return np.nonzero(~self.X[:,j])[0][0], j
     
-    
     def find_trivial_group(self): 
         ''' Find a pair (i,j), if existent, where a queen completes a color.'''
         xg_count = np.count_nonzero(self.X & self.G, (1,2))
@@ -84,7 +75,6 @@ class QueensSolver:
             g = g[0]
             i, j = np.nonzero(self.G[g] & ~self.X)
             return i[0], j[0]
-    
     
     def fill_trivials(self):
         ''' Recursively fill every possible position where a queen would 
@@ -100,7 +90,6 @@ class QueensSolver:
             if pos:
                 self.update_Q(*pos)
                 self.fill_trivials()
-       
         
     def solve_rec(self, depth): 
         ''' Recursion function for solving the puzzle with backtracking.'''
@@ -119,7 +108,6 @@ class QueensSolver:
                     if branch.solve_rec(depth-1):
                         self.Q, self.X = branch.Q, branch.X
                         return True
-    
     
     def solve(self, B):
         ''' Solve the Queens puzzle given by an NxN board.'''
