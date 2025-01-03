@@ -7,7 +7,7 @@
 ![Numpy version](https://img.shields.io/badge/numpy-1.26-blue.svg)
 ![Numpy version](https://img.shields.io/badge/opencv-4.10-blue.svg)
 
-# LinkedIn's Queen puzzle solver
+# LinkedIn's Queens puzzle solver
 
 This project provides an algorithm for solving LinkedIn's Queens puzzle game automatically. The puzzle is a visual logic game, 
 where you need to fill a grid so that there is one Queen in each row, column and colored region, with no queen diagonaly touching another. 
