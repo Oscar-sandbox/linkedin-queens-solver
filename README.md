@@ -10,7 +10,7 @@
 # LinkedIn's Queens puzzle solver
 
 This project provides an algorithm for solving LinkedIn's Queens puzzle game automatically. The puzzle is a visual logic game, 
-where you need to fill a grid so that there is one Queen in each row, column and colored region, with no queen diagonaly touching another. 
+where you need to fill a grid so that there is one queen in each row, column and colored region, with no queen diagonaly touching another. 
 A tutorial on how to play can be found [here](linkedin.com/games/queens). 
 
 The script consists of two stages. First, an image of the grid to solve has to be parsed, and converted into a 2-dimensional $N\times N$ array 
