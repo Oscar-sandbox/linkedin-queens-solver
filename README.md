@@ -7,7 +7,7 @@
 ![Numpy version](https://img.shields.io/badge/numpy-1.26-blue.svg)
 ![Numpy version](https://img.shields.io/badge/opencv-4.10-blue.svg)
 
-# LinkedIn's Queens puzzle solver
+# LinkedIn's Queens Puzzle Solver
 
 ## About the puzzle 
 This project provides an algorithm for solving LinkedIn's Queens puzzle game automatically. The puzzle is a visual logic game, 
