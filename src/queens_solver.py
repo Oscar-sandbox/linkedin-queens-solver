@@ -10,7 +10,16 @@ import numpy as np
 class QueensSolver:   
     def __init__(self, depth): 
         ''' Construct a Queens solver using backtracking.'''
-        self.depth = depth       
+        self.depth = depth
+        
+        self.B = None # NxN array encoding cells' colors, with integer entries in [0,N). 
+        self.N = None # board dimensions.  
+          
+        self.G = None # NxNxN array, where G[i] is the mask of the ith color. 
+        self.G_count = None # array with the number of cells of each color. 
+        
+        self.Q = None # NxN mask of the positions of the current queens. 
+        self.X = None # NxN mask of the positions of the current markings (impossible queen positions). 
         
     def check_Q(self):
         ''' Check if self.Q contains an answer for the puzzle.'''
@@ -115,14 +124,14 @@ class QueensSolver:
     
     def solve(self, B):
         ''' Solve the Queens puzzle given by an NxN board.'''
-        self.B = B # board.
+        self.B = B 
         self.N = len(B)
           
-        self.G = np.array([B == g for g in range(self.N)]) # board mask for each color. 
-        self.G_count = np.count_nonzero(self.G, (1,2)) # number of cells for each color. 
+        self.G = np.array([B == g for g in range(self.N)])
+        self.G_count = np.count_nonzero(self.G, (1,2))
         
-        self.Q = np.zeros_like(B, dtype=bool) # current queens.
-        self.X = np.zeros_like(B, dtype=bool) # current marks.
+        self.Q = np.zeros_like(B, dtype=bool)
+        self.X = np.zeros_like(B, dtype=bool)
         
         self.fill_trivials()
         if self.solve_rec(depth=self.depth): 
